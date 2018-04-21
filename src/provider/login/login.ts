@@ -31,7 +31,7 @@ export class LoginProvider {
       console.log(result);
       if(result != undefined && result) {
         localStorage.setItem('isLoggedAutoServicesManagerTemp', 'true');
-        this.router.navigate(['welcome']);
+        this.router.navigate(['produtos']);
       }
       else {
         localStorage.setItem('isLoggedAutoServicesManagerTemp', 'false');
@@ -44,15 +44,10 @@ export class LoginProvider {
     return subject.asObservable();
   }
 
-  public obterProdutos(credentials : LoginCredentials) : Observable<any> {
+  public obterProdutos() : Observable<any> {
     let subject = new Subject<any>();
-    this.baseClient.get([this.baseApi,'autoService', 'produtos', 'lista']).subscribe(result =>{
+    this.baseClient.get([this.baseApi,'autoService', 'produto', 'lista']).subscribe(result =>{
       console.log(result);
-      if(result != undefined && result) {
-        
-      }
-      else {
-      }
       subject.next(result);
     },
       error => {subject.error(error)}

@@ -14,6 +14,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginProvider } from '../provider/login/login';
 import { BaseClient } from '../provider/base-client';
 import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.component';
+import { ListaProdutoComponent } from './lista-produto/lista-produto.component';
+import { MatCardModule } from '@angular/material'
 
 
 @NgModule({
@@ -23,13 +25,15 @@ import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.co
     CadastroComponent,
     LoginComponent,
     HeaderComponent,
-    CadastroProdutoComponent
+    CadastroProdutoComponent,
+    ListaProdutoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    MatCardModule
   ],
   exports: [RouterModule],
   providers: [LoginProvider, BaseClient],

@@ -25,7 +25,15 @@ export class CadastroProdutoComponent implements OnInit {
   cadastrarProduto() {
     console.log(this.product);
     debugger;
-    this.loginProvider.cadastrarProduto(this.product).subscribe(result=>(result));
+    var salvo;
+    this.loginProvider.cadastrarProduto(this.product).subscribe(result=>(salvo = result));
+    if(salvo) {
+      alert("Produto salvo com sucesso!");
+      this.product = new Product();
+      this.product.nomeProduto = "";
+      this.product.valor = "";
+    }
+    return false;
   }
 
 }

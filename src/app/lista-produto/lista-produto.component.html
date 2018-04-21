@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Produtos<a href="#" class="btn btn-primary btn-md" style="margin-left:5px;" [routerLink]="['/welcome']">Novo<i class="fa fa-sign-up"></i></a></h4>
+            <div class="table-responsive">
+                <mat-card *ngFor="let produto of listaProduto;">
+                  <mat-card-content>
+                      <p>{{produto.nomeProduto}}</p>
+                      <p>{{produto.valor}}</p>
+                  </mat-card-content>
+                </mat-card>
+            </div>
+
+        </div>
+    </div>
+</div>
