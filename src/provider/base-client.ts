@@ -7,7 +7,7 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class BaseClient {
-  public APIHOST : string = 'https://api.jacotei.com.br/';
+  public APIHOST : string = 'https://app-auto-core.herokuapp.com';
   public consumerKey : string = 'f2d8c2f8599c46e4a4567b40126c8659';
 
   public constructor(private http : Http){}

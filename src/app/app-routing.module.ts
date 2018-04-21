@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { CadastroFullComponent } from './cadastro-full/cadastro-full.component';
-import { LoginFullComponent } from './login-full/login-full.component';
+import { LoginComponent } from './login/login.component';
+import { CadastroComponent } from './cadastro/cadastro.component';
+import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.component';
 
 export const appRoutes: Routes = [
     {
         path: 'cadastro',
-        component: CadastroFullComponent, data: {
+        component: CadastroComponent, data: {
             page: 'cadastro'
           }
     },
     {path: '', redirectTo: '/home', pathMatch: 'full'},
-    {path: 'home', component: LoginFullComponent},
+    {path: 'home', component: LoginComponent},
+    {path: 'welcome', component: CadastroProdutoComponent, data: {page: 'cadastroProduto'}},
     {path: '**', redirectTo: '/home', pathMatch: 'full'}
 ];
 @NgModule({

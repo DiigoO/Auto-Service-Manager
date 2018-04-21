@@ -1,0 +1,24 @@
+<form class="form-horizontal" style="padding-top:150px;">
+    <fieldset>
+    <legend style="text-align:center;font-size:30px;">Cadastro Produto</legend>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="nome">Nome do Produto</label>  
+      <div class="col-md-4">
+      <input id="nome" name="nome" [(ngModel)]="product.nomeProduto" type="text" placeholder="Nome do Produto" class="form-control input-md" required="">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="valor">Valor</label>  
+      <div class="col-md-4">
+      <input id="valor" name="valor" [(ngModel)]="product.valor" type="text" placeholder="Valor do Produto" class="form-control input-md" required="">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="pesquisar"></label>
+      <div >
+        <a href="#" class="btn btn-primary btn-md" (click)="cadastrarProduto()">Cadastrar<i class="fa fa-sign-up"></i></a>
+      </div>
+    </div>
+    </fieldset>
+    </form>
+    

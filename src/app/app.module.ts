@@ -10,11 +10,10 @@ import { FooterComponent } from './footer/footer.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
-import { CadastroFullComponent } from './cadastro-full/cadastro-full.component';
-import { LoginFullComponent } from './login-full/login-full.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginProvider } from '../provider/login/login';
 import { BaseClient } from '../provider/base-client';
+import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.component';
 
 
 @NgModule({
@@ -24,8 +23,7 @@ import { BaseClient } from '../provider/base-client';
     CadastroComponent,
     LoginComponent,
     HeaderComponent,
-    CadastroFullComponent,
-    LoginFullComponent
+    CadastroProdutoComponent
   ],
   imports: [
     BrowserModule,

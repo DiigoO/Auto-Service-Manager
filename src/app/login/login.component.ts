@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
 
   login(){
     console.log(this.credentials);
+    debugger;
     this.loginProvider.login(this.credentials).subscribe(result=>(result));
   }
 

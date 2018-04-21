@@ -5,6 +5,7 @@ import { Subject } from 'rxjs/Subject';
 import { BaseClient } from '../base-client';
 import { LoginCredentials } from '../../aggregates/login-credentials';
 import { NewUser } from '../../aggregates/autoService-new-users';
+import { Product } from '../../aggregates/autoService-new-product';
 
 /*
   Generated class for the LoginProvider provider.
@@ -25,7 +26,31 @@ export class LoginProvider {
 
   public login(credentials : LoginCredentials) : Observable<any> {
     let subject = new Subject<any>();
-    this.baseClient.post([this.baseApi,'login','autoService'], credentials).subscribe(result =>{
+    this.baseClient.post([this.baseApi,'autoService'], credentials).subscribe(result =>{
+      subject.next(result);
+    },
+      error => {subject.error(error)}
+    );
+    return subject.asObservable();
+  }
+
+  public createUser(newUser : NewUser) : Observable<any>{
+    debugger;
+    let subject = new Subject<any>();
+
+    this.baseClient.post([this.baseApi,'autoService','cadastro'], newUser).subscribe(result =>{
+      subject.next(result);
+    },
+      error => {subject.error(error)}
+    );
+    return subject.asObservable();
+  }
+
+  public cadastrarProduto(product : Product) : Observable<any>{
+
+    let subject = new Subject<any>();
+
+    this.baseClient.post([this.baseApi,'autoService', 'produto','cadastro'], product).subscribe(result =>{
       subject.next(result);
     },
       error => {subject.error(error)}
@@ -55,18 +80,6 @@ export class LoginProvider {
 
   private clearSessionCache(){
     this.session = {user:{}};
-  }
-
-  public createUserJacotei(NewUser : any) : Observable<any>{
-
-    let subject = new Subject<any>();
-
-    this.baseClient.post([this.baseApi,'login','autoService','cadastro'], NewUser).subscribe(result =>{
-      subject.next(result);
-    },
-      error => {subject.error(error)}
-    );
-    return subject.asObservable();
   }
 
 }
