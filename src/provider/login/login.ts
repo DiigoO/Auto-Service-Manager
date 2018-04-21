@@ -44,6 +44,22 @@ export class LoginProvider {
     return subject.asObservable();
   }
 
+  public obterProdutos(credentials : LoginCredentials) : Observable<any> {
+    let subject = new Subject<any>();
+    this.baseClient.get([this.baseApi,'autoService', 'produtos', 'lista']).subscribe(result =>{
+      console.log(result);
+      if(result != undefined && result) {
+        
+      }
+      else {
+      }
+      subject.next(result);
+    },
+      error => {subject.error(error)}
+    );
+    return subject.asObservable();
+  }
+
   public createUser(newUser : NewUser) : Observable<any>{
     debugger;
     let subject = new Subject<any>();
