@@ -13,6 +13,9 @@ import { HeaderComponent } from './header/header.component';
 import { CadastroFullComponent } from './cadastro-full/cadastro-full.component';
 import { LoginFullComponent } from './login-full/login-full.component';
 import { AppRoutingModule } from './app-routing.module';
+import { LoginProvider } from '../provider/login/login';
+import { BaseClient } from '../provider/base-client';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +34,7 @@ import { AppRoutingModule } from './app-routing.module';
     HttpModule
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [LoginProvider, BaseClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
