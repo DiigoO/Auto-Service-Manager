@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
     console.log(this.credentials);
     debugger;
     this.loginProvider.login(this.credentials).subscribe(result=>(result));
+    return false;
   }
 
 }

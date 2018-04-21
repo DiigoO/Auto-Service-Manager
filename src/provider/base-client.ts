@@ -46,7 +46,7 @@ export class BaseClient {
 
   public headers(headersArgs = {}) : Headers {
     let headers: Headers = new Headers();
-    headers.append('consumerKey', this.consumerKey);
+    // headers.append('consumerKey', this.consumerKey);
     for(let headerName in headersArgs){
       let headerValue = headersArgs[headerName];
       headers.append(headerName, headerValue);

@@ -6,6 +6,7 @@ import { BaseClient } from '../base-client';
 import { LoginCredentials } from '../../aggregates/login-credentials';
 import { NewUser } from '../../aggregates/autoService-new-users';
 import { Product } from '../../aggregates/autoService-new-product';
+import { Router } from '@angular/router';
 
 /*
   Generated class for the LoginProvider provider.
@@ -20,13 +21,21 @@ export class LoginProvider {
   public baseApi : string = 'core-login';
   private afterLoginSubjects : Subject<string>[] = [];
   
-  constructor(public baseClient : BaseClient) {
+  constructor(public baseClient : BaseClient, public router: Router) {
     console.log('Hello LoginProvider Provider');
   }
 
   public login(credentials : LoginCredentials) : Observable<any> {
     let subject = new Subject<any>();
     this.baseClient.post([this.baseApi,'autoService'], credentials).subscribe(result =>{
+      console.log(result);
+      if(result != undefined && result) {
+        localStorage.setItem('isLoggedAutoServicesManagerTemp', 'true');
+        this.router.navigate(['welcome']);
+      }
+      else {
+        localStorage.setItem('isLoggedAutoServicesManagerTemp', 'false');
+      }
       subject.next(result);
     },
       error => {subject.error(error)}
@@ -39,6 +48,12 @@ export class LoginProvider {
     let subject = new Subject<any>();
 
     this.baseClient.post([this.baseApi,'autoService','cadastro'], newUser).subscribe(result =>{
+      if(result != undefined && result) {
+        alert("Usuario cadastrado com sucesso!");
+      }
+      else {
+        alert("Ocorreu um erro ao cadastrar o Usuario!");
+      }
       subject.next(result);
     },
       error => {subject.error(error)}
@@ -51,6 +66,12 @@ export class LoginProvider {
     let subject = new Subject<any>();
 
     this.baseClient.post([this.baseApi,'autoService', 'produto','cadastro'], product).subscribe(result =>{
+      if(result != undefined && result) {
+        alert("Produto cadastrado com sucesso!");
+      }
+      else {
+        alert("Ocorreu um erro ao cadastrar o Produto!");
+      }
       subject.next(result);
     },
       error => {subject.error(error)}
