@@ -35,6 +35,7 @@ export class LoginProvider {
       }
       else {
         localStorage.setItem('isLoggedAutoServicesManagerTemp', 'false');
+        alert("Falha na autenticação do Usuario!");
       }
       subject.next(result);
     },
