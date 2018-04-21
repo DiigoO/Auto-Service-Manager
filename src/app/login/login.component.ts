@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginCredentials } from '../../aggregates/login-credentials';
+import { LoginProvider } from '../../provider/login/login';
+
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  credentials : LoginCredentials = new LoginCredentials();
+
+  constructor(private loginProvider : LoginProvider) { }
 
   ngOnInit() {
+  }
+
+  login(){
+    console.log(this.credentials);
+    this.loginProvider.login(this.credentials).subscribe(result=>(result));
   }
 
 }
